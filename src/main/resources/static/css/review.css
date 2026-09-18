@@ -1,0 +1,122 @@
+.reviews-container {
+    max-height: 500px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.review-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(166,123,107,0.15);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+.review-title {
+    font-family: "Playfair Display", serif;
+    color: #5f4b45;
+}
+
+.star-container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 20px 0 30px;
+}
+
+.star {
+    font-size: 2.5rem;
+    color: #a67b6b;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.star:hover {transform: scale(1.15);}
+
+.comment-section {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid rgba(166,123,107,0.3);
+    padding: 12px;
+    resize: none;
+    color: #5a514d;
+}
+
+.comment-section:focus {
+    outline: none;
+    border-color: #a67b6b;
+    box-shadow: 0 0 0 4px rgba(166,123,107,0.15);
+}
+
+.reviews-title {
+    font-family: "Playfair Display", serif;
+    color: #5f4b45;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 28px;
+}
+
+.reviews-container {
+    max-height: 500px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.review-card {
+    background: #fffaf5;
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(166,123,107,0.12);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+}
+
+.review-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+}
+
+.review-rating {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.filled-star {
+    color: #a67b6b;
+    margin: 0 2px;
+}
+
+.empty-star {
+    color: #ddd2cb;
+    margin: 0 2px;
+}
+
+.review-comment {
+    font-family: "Playfair Display", serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #5a514d;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.review-details {
+    font-size: 0.85rem;
+    color: #777;
+    border-top: 1px solid rgba(166,123,107,0.15);
+    padding-top: 15px;
+}
+
+.review-label {
+    color: #a67b6b;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.review-comment::before {content: "“";}
+
+.review-comment::after {content: "”";}

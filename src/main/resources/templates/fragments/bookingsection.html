@@ -1,0 +1,38 @@
+<div th:fragment="booking-section">
+    <div class="booking-section" id="booking-section">
+        <div class="booking-group upcoming-bookings">
+            <h2 class="bookings-header" id="upcoming-bookings-header">Upcoming Bookings</h2>
+            <p class="bookings-subtitle" id="upcoming-bookings-subtitle">View and manage your upcoming stays.</p>
+            <table class="bookings-table" id="upcoming-bookings-table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Check-in</th>
+                    <th>Check-out</th>
+                    <th>Guests</th>
+                    <th>Total Price</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody class="bookings-container" id="upcoming-bookings-container"></tbody>
+            </table>
+        </div>
+        <div class="booking-group completed-bookings" id="completed-bookings-section">
+            <h2 class="bookings-header" id="completed-bookings-header">Completed Bookings</h2>
+            <p class="bookings-subtitle" id="completed-bookings-subtitle">Previous stays.</p>
+            <table class="bookings-table" id="completed-bookings-table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Checked in</th>
+                    <th>Checked out</th>
+                    <th>Guests</th>
+                    <th>Total Price</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody class="bookings-container" id="completed-bookings-container"></tbody>
+            </table>
+        </div>
+    </div>
+</div>

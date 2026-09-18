@@ -1,0 +1,21 @@
+.customer-card {
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.customer-card:focus-within {
+    border-color: rgba(166, 123, 107, 0.45);
+    box-shadow: 0 12px 40px rgba(166, 123, 107, 0.18);
+}
+
+.customer-form .form-label {
+    color: #a67b6b;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.customer-divider {
+    opacity: 0.15;
+    color: #a67b6b;
+    width: 2px;
+}

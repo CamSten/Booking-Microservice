@@ -1,0 +1,175 @@
+.windsong-regular {
+    font-family: "WindSong", cursive;
+    font-size: large;
+    font-weight: 400;
+}
+
+.windsong-medium {
+    font-family: "WindSong", cursive;
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.dancing-script {
+    font-family: "Dancing Script", cursive;
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+.league-script-regular {
+    font-family: "League Script", cursive;
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+body {
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #f5e6e8, #fdf6f0, #e8f1f2);
+    font-family: Arial, sans-serif;
+    color: #2f2a28;
+}
+
+.booking-container {max-width: 1100px;}
+
+.booking-container .row {justify-content: center;}
+
+.booking-card,
+.calendar-card {
+    background: #fffaf5;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.booking-card {
+    border: 1px solid rgba(166, 123, 107, 0.15);
+    backdrop-filter: blur(4px);
+}
+
+.booking-card:hover,
+.calendar-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.booking-card img {
+    width: 92%;
+    max-height: 320px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 18px auto;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.booking-card h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.9rem;
+    font-weight: 500;
+    color: #5f4b45;
+    margin-top: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.booking-card p {
+    margin: 14px 0;
+    color: #5a514d;
+    line-height: 1.5;
+}
+
+.booking-card p:not(:last-child) {
+    border-bottom: 1px solid rgba(166, 123, 107, 0.12);
+    padding-bottom: 10px;
+}
+
+.booking-card strong {
+    color: #a67b6b;
+    font-weight: 600;
+}
+
+.room-text {
+    color: #5a514d;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.room-label,
+#guest-section .room-label {
+    font-size: 0.85rem;
+    color: #a67b6b;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+}
+
+#guest-section {margin: 18px 0;}
+
+#guest-count {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid rgba(166, 123, 107, 0.25);
+    border-radius: 10px;
+    background: #fff;
+    color: #2f2a28;
+    font-size: 0.95rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+#guest-count:focus {
+    outline: none;
+    border-color: #a67b6b;
+    box-shadow: 0 0 0 4px rgba(166, 123, 107, 0.15);
+}
+
+#extra-bed-section {margin: 18px 0;}
+
+#extra-bed-section label,
+.extra-bed-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #5a514d;
+}
+
+#extra-bed {accent-color: #a67b6b;}
+
+.extra-bed-label span {font-weight: 500;}
+
+.extra-bed-fee {
+    font-size: 0.78rem;
+    color: rgba(90, 81, 77, 0.65);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+
+.search-title {
+    display: block;
+    font-size: 1rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #a67b6b;
+    margin-bottom: 6px;
+}
+
+.search-prompt {
+    font-family: "League Script", cursive;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #5f4b45;
+    margin: 0;
+}
+
+.search-intro {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.calendar-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    padding: 0 16px;
+    box-sizing: border-box;
+}

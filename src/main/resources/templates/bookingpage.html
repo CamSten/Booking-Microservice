@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head('Booking')}"></head>
+<body>
+<div th:replace="~{fragments/hero :: hero}"></div>
+<div class="booking-container container my-5">
+    <div class="row g-4">
+        <div th:replace="~{fragments/calendarcard :: calendarCard}"></div>
+        <div class="col-12 col-lg-6">
+            <div class="booking-card">
+                <input type="hidden" id="prefill-startdate" th:value="${startdate}">
+                <input type="hidden" id="prefill-enddate" th:value="${enddate}">
+                <input type="hidden" id="booking-id" th:value="${bookingId}">
+                <input type="hidden" id="room-id" th:value="${room.id}">
+                <input type="hidden" id="room-price" th:value="${room.costPerNight}">
+                <img id="room-image" th:src="@{'/images/rooms/room_' + ${room.id} + '_1.jpg'}" alt="Room image">
+                <h2 th:text="${room.roomType} + ' Room'">Room Type</h2>
+                <p>
+                    <span class="room-label">Price per night:</span>
+                    <span class="room-text" th:text="${room.costPerNight} + ' SEK'">0 SEK</span>
+                </p>
+                <p>
+                    <span class="room-label">Room number:</span>
+                    <span class="room-text" th:text="${room.roomNumber}">101</span>
+                </p>
+                <div id="extra-bed-section" th:if="${room.extraBedAvailable}">
+                    <label class="extra-bed-label">
+                        <input type="checkbox" id="extra-bed">
+                        <span class="room-label">Extra bed</span>
+                        <span class="extra-bed-fee">(+250 SEK per night)</span>
+                    </label>
+                </div>
+                <div class="guest-section" id="guest-section">
+                    <span class="room-label">Guests:</span>
+                </div>
+                <p>
+                    <span class="room-label">Dates:</span>
+                    <span class="room-text" id="booking-dates">Not selected</span>
+                </p>
+                <p>
+                    <span class="room-label">Total price:</span>
+                    <span class="room-text" id="booking-total">0 SEK</span>
+                </p>
+                <button class="book-btn" id="book-button">Book this room</button>
+                <a class="btn btn-outline-secondary back-btn" href="/home">Back to All Rooms</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="~{fragments/modal :: modal}"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script th:src="@{/js/booking.js?v=2}"></script>
+</body>
+</html>

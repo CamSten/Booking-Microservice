@@ -1,0 +1,63 @@
+#calendar {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.flatpickr-calendar {
+    width: fit-content;
+    max-width: 100%;
+    background: #fffaf5;
+    border: none;
+    border-radius: 24px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.10);
+    font-family: Arial, sans-serif;
+    padding: 12px;
+}
+
+.flatpickr-calendar .dayContainer,
+.flatpickr-calendar .flatpickr-days,
+.flatpickr-calendar .flatpickr-weekdays {background: transparent !important;}
+
+.flatpickr-day {
+    font-weight: 600;
+    color: #3b2f4a;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 10px;
+    position: relative;
+}
+
+.flatpickr-day.inRange {
+    background: rgba(90, 75, 107, 0.14) !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #3b2f4a;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange {
+    background: #5a4b6b !important;
+    border: none !important;
+    color: #fff !important;
+    font-weight: 700;
+    box-shadow: none !important;
+}
+
+.flatpickr-day:before,
+.flatpickr-day:after {display: none !important;}
+
+.flatpickr-day:hover {
+    background: rgba(166, 123, 107, 0.10);
+    transform: scale(1.02);
+}
+
+.flatpickr-day.flatpickr-disabled,
+.flatpickr-day.flatpickr-disabled:hover {
+    background: transparent !important;
+    color: rgba(59, 47, 74, 0.35) !important;
+    cursor: not-allowed;
+    text-decoration: none !important;
+    box-shadow: none !important;
+}

@@ -1,0 +1,72 @@
+.hero {
+    height: 260px;
+    background-image: url("../images/peonies.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(255, 250, 245, 0.75), rgba(255, 250, 245, 0.4));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.header-title {
+    font-family: "League Script", cursive;
+    font-size: 3.6rem;
+    font-weight: 600;
+    margin: 0;
+    color: #2f2a28;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.subtitle {
+    font-family: "Playfair Display", serif;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    color: #777;
+}
+
+.hero-home-link {
+    font-family: "League Script", cursive;
+    font-size: 2rem;
+    color: #2f2a28;
+}
+
+.hero-nav-link {
+    color: #5a514d;
+    letter-spacing: 0.1em;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.hero-nav-link:hover {color: #a67b6b;}
+
+.hero-login-link {
+    color: #5a514d;
+    letter-spacing: 0.1em;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(166, 123, 107, 0.6);
+    border-radius: 20px;
+    padding: 6px 18px;
+    transition: all 0.2s ease;
+}
+
+.hero-login-link:hover {
+    background-color: #a67b6b;
+    color: white;
+    border-color: #a67b6b;
+}

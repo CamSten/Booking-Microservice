@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head('Search rooms')}"></head>
+<body>
+    <div th:replace="~{fragments/hero :: hero(hideSearch=true)}"></div>
+<div class="booking-container container my-5">
+    <div class="row g-4">
+        <div class="search-intro">
+            <span class="search-prompt">Plan your stay</span>
+            <h2 class="search-title">Choose your dates</h2>
+        </div>
+        <div th:replace="~{fragments/calendarcard :: calendarCard}"></div>
+        <button class="book-btn" id="search-button" style="display:none;">
+            Search available rooms
+        </button>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script th:src="@{/js/searching.js}"></script>
+</body>
+</html>
