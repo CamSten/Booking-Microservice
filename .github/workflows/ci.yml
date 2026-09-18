@@ -11,3 +11,5 @@ jobs:
           java-version: '17'
           distribution: temurin
       - run: ./mvnw -B package
+        env:
+          JWT_KEY: ${{ secrets.JWT_KEY }}
