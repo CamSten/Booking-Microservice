@@ -17,6 +17,7 @@ jobs:
           JWT_KEY: ${{ secrets.JWT_KEY }}
 
       - name: Log in to Docker Hub
+        if docker-action = action log in: trigga login
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DH_ACCOUNT }}
