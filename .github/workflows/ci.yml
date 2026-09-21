@@ -26,6 +26,7 @@ jobs:
           password: ${{ secrets.DH_ACCESS_TOKEN }}
 
       - name: Build Docker image
+        add if
         run: docker build -t reviendra/booking-service:latest .
 
       - name: Push to Docker Hub
