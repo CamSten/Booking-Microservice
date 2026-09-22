@@ -44,9 +44,21 @@ public class CustomerService {
             return (response != null)
                     ? new CustomerResponseDTO(response.getCustomer(), Feedback.OK, response.getToken())
                     : new CustomerResponseDTO(Feedback.CUSTOMER_SERVICE_UNAVAILABLE, "RestTemplate returned null");
+        } catch (HttpStatusCodeException e) {
+            return new CustomerResponseDTO(
+                    Feedback.CUSTOMER_SERVICE_UNAVAILABLE,
+                    "Class: " + e.getClass().getName()
+                            + " | Message: " + e.getMessage()
+                            + " | Cause: " + e.getCause()
+                            + " | status code: " + e.getStatusCode()
+            );
         } catch (Exception e) {
             return new CustomerResponseDTO(
-                    Feedback.CUSTOMER_SERVICE_UNAVAILABLE, e.getClass().getName() + ": " + e.getMessage());
+                    Feedback.CUSTOMER_SERVICE_UNAVAILABLE,
+                    "Class: " + e.getClass().getName()
+                            + " | Message: " + e.getMessage()
+                            + " | Cause: " + e.getCause()
+            );
         }
     }
 //    public CustomerResponseDTO signupCustomer(CustomerDTO dto) {
