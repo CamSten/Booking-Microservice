@@ -15,7 +15,7 @@
     <groupId>com.example</groupId>
     <artifactId>booking-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>testing-spring-boot</name>
+    <name>Booking-Service</name>
     <description>Booking-service</description>
 
     <properties>

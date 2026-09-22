@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Answers;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -31,11 +32,12 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 @Transactional
 @Testcontainers
 class BookingAppApplicationTests {
-
+    @Value("${customer.service.url}")
+    private String customerServiceUrl;
     @Container
     @ServiceConnection
     static MySQLContainer<?> mysql = new MySQLContainer<>("mysql:8.0")
-            .withDatabaseName("bookify")
+            .withDatabaseName("bookingDB")
             .withUsername("test")
             .withPassword("test");
     @MockBean(answer = Answers.RETURNS_DEEP_STUBS)
@@ -43,12 +45,12 @@ class BookingAppApplicationTests {
     @BeforeEach
     void mockCustomerService() {
         when(restTemplateConfig.restTemplate().getForEntity(
-                "http://localhost:8081/api/customers/1",
+                customerServiceUrl + "/1",
                 Object.class))
                 .thenReturn(ResponseEntity.ok().build());
 
         when(restTemplateConfig.restTemplate().getForEntity(
-                "http://localhost:8081/api/customers/-1",
+                customerServiceUrl + "/-1",
                 Object.class))
                 .thenReturn(ResponseEntity.notFound().build());
     }

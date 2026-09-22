@@ -17,7 +17,7 @@ public class BookingIntegrationTest {
     @Container
     @ServiceConnection
     static MySQLContainer<?> mysql = new MySQLContainer<>("mysql:8.0")
-                    .withDatabaseName("bookify")
+                    .withDatabaseName("bookingDB")
                     .withUsername("test")
                     .withPassword("test");
     @Autowired
