@@ -51,6 +51,7 @@ public class CustomerService {
                             + " | Message: " + e.getMessage()
                             + " | Cause: " + e.getCause()
                             + " | status code: " + e.getStatusCode()
+                    + "| customer url: " + customerServiceUrl
             );
         } catch (Exception e) {
             return new CustomerResponseDTO(
@@ -58,6 +59,7 @@ public class CustomerService {
                     "Class: " + e.getClass().getName()
                             + " | Message: " + e.getMessage()
                             + " | Cause: " + e.getCause()
+                            + "| customer url: " + customerServiceUrl
             );
         }
     }
