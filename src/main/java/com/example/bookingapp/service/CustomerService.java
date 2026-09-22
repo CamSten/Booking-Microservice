@@ -37,7 +37,7 @@ public class CustomerService {
             return new CustomerResponseDTO(getLoginFeedbackFromStatus(e.getStatusCode()));
         }
     }
-
+//Does not function in railway, except in console. Printing error messages for trouble shooting.
     public CustomerResponseDTO signupCustomer(CustomerDTO dto) {
         try {
             LoginResponseDTO response = restTemplate.postForObject(customerServiceUrl + "/signup", dto, LoginResponseDTO.class);
