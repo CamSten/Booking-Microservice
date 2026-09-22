@@ -93,7 +93,8 @@ public class FrontendController {
         if (responseDTO.getFeedback() == Feedback.OK && responseDTO.getCustomerDTO() != null) {
             return getRerouteForValidSignIn(session, responseDTO, returnToBook, roomId);
         }
-        model.addAttribute("signupError", responseDTO.getFeedback().feedback);
+        model.addAttribute("signupError", responseDTO.getFeedback().feedback + " " + responseDTO.getErrorDetails());
+//        model.addAttribute("signupError", responseDTO.getFeedback().feedback);
         model.addAttribute("signupCustomer", customer);
         model.addAttribute("loginCustomer", new CustomerDTO());
         return "customer";

@@ -43,15 +43,26 @@ public class CustomerService {
             LoginResponseDTO response = restTemplate.postForObject(customerServiceUrl + "/signup", dto, LoginResponseDTO.class);
             return (response != null)
                     ? new CustomerResponseDTO(response.getCustomer(), Feedback.OK, response.getToken())
-                    : new CustomerResponseDTO(Feedback.CUSTOMER_SERVICE_UNAVAILABLE);
-        } catch (ResourceAccessException e) {
-            System.err.println("SIGNUP - ResourceAccessException: " + e.getMessage());
-            e.printStackTrace();
-            return new CustomerResponseDTO(Feedback.CUSTOMER_SERVICE_UNAVAILABLE);
-        } catch (HttpStatusCodeException e) {
-            return new CustomerResponseDTO(getFeedbackFromStatus(e.getStatusCode()));
+                    : new CustomerResponseDTO(Feedback.CUSTOMER_SERVICE_UNAVAILABLE, "RestTemplate returned null");
+        } catch (Exception e) {
+            return new CustomerResponseDTO(
+                    Feedback.CUSTOMER_SERVICE_UNAVAILABLE, e.getClass().getName() + ": " + e.getMessage());
         }
     }
+//    public CustomerResponseDTO signupCustomer(CustomerDTO dto) {
+//        try {
+//            LoginResponseDTO response = restTemplate.postForObject(customerServiceUrl + "/signup", dto, LoginResponseDTO.class);
+//            return (response != null)
+//                    ? new CustomerResponseDTO(response.getCustomer(), Feedback.OK, response.getToken())
+//                    : new CustomerResponseDTO(Feedback.CUSTOMER_SERVICE_UNAVAILABLE);
+//        } catch (ResourceAccessException e) {
+//            System.err.println("SIGNUP - ResourceAccessException: " + e.getMessage());
+//            e.printStackTrace();
+//            return new CustomerResponseDTO(Feedback.CUSTOMER_SERVICE_UNAVAILABLE);
+//        } catch (HttpStatusCodeException e) {
+//            return new CustomerResponseDTO(getFeedbackFromStatus(e.getStatusCode()));
+//        }
+//    }
 
     public CustomerResponseDTO updateCustomer(Long customerId, CustomerDTO customerDTO) {
         try {
