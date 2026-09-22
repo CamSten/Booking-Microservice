@@ -30,6 +30,7 @@ public class CustomerService {
                     ? new CustomerResponseDTO(response.getCustomer(), Feedback.OK, response.getToken())
                     : new CustomerResponseDTO(Feedback.CUSTOMER_SERVICE_UNAVAILABLE);
         } catch (ResourceAccessException e) {
+            e.printStackTrace();
             return new CustomerResponseDTO(Feedback.CUSTOMER_SERVICE_UNAVAILABLE);
         } catch (HttpStatusCodeException e) {
             return new CustomerResponseDTO(getLoginFeedbackFromStatus(e.getStatusCode()));
@@ -43,6 +44,7 @@ public class CustomerService {
                     ? new CustomerResponseDTO(response.getCustomer(), Feedback.OK, response.getToken())
                     : new CustomerResponseDTO(Feedback.CUSTOMER_SERVICE_UNAVAILABLE);
         } catch (ResourceAccessException e) {
+            e.printStackTrace();
             return new CustomerResponseDTO(Feedback.CUSTOMER_SERVICE_UNAVAILABLE);
         } catch (HttpStatusCodeException e) {
             return new CustomerResponseDTO(getFeedbackFromStatus(e.getStatusCode()));
