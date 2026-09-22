@@ -31,6 +31,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 @Transactional
 @Testcontainers
 class BookingAppApplicationTests {
+
     @Container
     @ServiceConnection
     static MySQLContainer<?> mysql = new MySQLContainer<>("mysql:8.0")
