@@ -30,6 +30,7 @@ public class CustomerService {
                     ? new CustomerResponseDTO(response.getCustomer(), Feedback.OK, response.getToken())
                     : new CustomerResponseDTO(Feedback.CUSTOMER_SERVICE_UNAVAILABLE);
         } catch (ResourceAccessException e) {
+            System.err.println("SIGNUP - ResourceAccessException: " + e.getMessage());
             e.printStackTrace();
             return new CustomerResponseDTO(Feedback.CUSTOMER_SERVICE_UNAVAILABLE);
         } catch (HttpStatusCodeException e) {
@@ -44,6 +45,7 @@ public class CustomerService {
                     ? new CustomerResponseDTO(response.getCustomer(), Feedback.OK, response.getToken())
                     : new CustomerResponseDTO(Feedback.CUSTOMER_SERVICE_UNAVAILABLE);
         } catch (ResourceAccessException e) {
+            System.err.println("SIGNUP - ResourceAccessException: " + e.getMessage());
             e.printStackTrace();
             return new CustomerResponseDTO(Feedback.CUSTOMER_SERVICE_UNAVAILABLE);
         } catch (HttpStatusCodeException e) {
