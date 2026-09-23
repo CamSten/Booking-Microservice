@@ -2,6 +2,7 @@ package com.example.bookingapp.controller;
 
 import com.example.bookingapp.model.*;
 import com.example.bookingapp.service.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;

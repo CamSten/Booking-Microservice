@@ -60,5 +60,6 @@ function createStars(number) {
 }
 
 async function getReviewsForRoom(roomId) {
-    return await fetch(`http://localhost:8082/reviews/room/${roomId}`);
+    const reviewServiceUrl = document.getElementById("review-service-url").value;
+    return await fetch(`${reviewServiceUrl}/reviews/room/${roomId}`);
 }

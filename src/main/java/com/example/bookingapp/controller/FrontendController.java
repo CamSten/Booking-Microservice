@@ -4,6 +4,7 @@ import com.example.bookingapp.model.*;
 import com.example.bookingapp.service.CustomerService;
 import com.example.bookingapp.service.RoomService;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,8 @@ import java.util.List;
 public class FrontendController {
     private final RoomService roomService;
     private final CustomerService customerService;
+    @Value("${review.service.url}")
+    private String reviewServiceUrl;
 
     @GetMapping("/")
     public String redirectRoot() {
@@ -45,6 +48,7 @@ public class FrontendController {
         model.addAttribute("room", roomService.getRoomById(id));
         model.addAttribute("startdate", startdate);
         model.addAttribute("enddate", enddate);
+        model.addAttribute("reviewServiceUrl", reviewServiceUrl);
         return "roompage";
     }
 
@@ -112,6 +116,7 @@ public class FrontendController {
             return "redirect:/customer";
         }
         CustomerResponseDTO response = customerService.getCustomerById(customerId);
+        model.addAttribute("reviewServiceUrl", reviewServiceUrl);
         if (response.getFeedback() == Feedback.CUSTOMER_SERVICE_UNAVAILABLE) {
             model.addAttribute("error", response.getFeedback().feedback);
             model.addAttribute("customer", new CustomerDTO());

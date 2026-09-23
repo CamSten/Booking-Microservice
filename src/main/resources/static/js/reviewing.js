@@ -71,7 +71,8 @@ function updateSubmitButton() {
 }
 
 async function sendReview(review) {
-    return await fetch("http://localhost:8082/reviews", {
+    const reviewServiceUrl = document.getElementById("review-service-url").value;
+    return await fetch(`${reviewServiceUrl}/reviews`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
