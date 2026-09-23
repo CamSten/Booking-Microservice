@@ -27,6 +27,7 @@ export function leaveReview(booking, modalBody, modalFooter) {
             rating: selectedRating,
             comment: commentSection.value
         };
+        console.log("Review being sent:", review);
         const response = await sendReview(review);
         modalBody.innerHTML = getReviewFeedback(response);
         modalFooter.innerHTML = `<button class="modal-btn modal-btn-primary" data-bs-dismiss="modal">Close</button>`;
