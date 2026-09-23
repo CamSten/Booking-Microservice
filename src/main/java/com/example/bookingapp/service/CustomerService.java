@@ -30,53 +30,24 @@ public class CustomerService {
                     ? new CustomerResponseDTO(response.getCustomer(), Feedback.OK, response.getToken())
                     : new CustomerResponseDTO(Feedback.CUSTOMER_SERVICE_UNAVAILABLE);
         } catch (ResourceAccessException e) {
-            System.err.println("SIGNUP - ResourceAccessException: " + e.getMessage());
-            e.printStackTrace();
             return new CustomerResponseDTO(Feedback.CUSTOMER_SERVICE_UNAVAILABLE);
         } catch (HttpStatusCodeException e) {
             return new CustomerResponseDTO(getLoginFeedbackFromStatus(e.getStatusCode()));
         }
     }
-//Does not function in railway, except in console. Printing error messages for troubleshooting.
+
     public CustomerResponseDTO signupCustomer(CustomerDTO dto) {
         try {
             LoginResponseDTO response = restTemplate.postForObject(customerServiceUrl + "/signup", dto, LoginResponseDTO.class);
             return (response != null)
                     ? new CustomerResponseDTO(response.getCustomer(), Feedback.OK, response.getToken())
-                    : new CustomerResponseDTO(Feedback.CUSTOMER_SERVICE_UNAVAILABLE, "RestTemplate returned null");
+                    : new CustomerResponseDTO(Feedback.CUSTOMER_SERVICE_UNAVAILABLE);
+        } catch (ResourceAccessException e) {
+            return new CustomerResponseDTO(Feedback.CUSTOMER_SERVICE_UNAVAILABLE);
         } catch (HttpStatusCodeException e) {
-            return new CustomerResponseDTO(
-                    Feedback.CUSTOMER_SERVICE_UNAVAILABLE,
-                    "Class: " + e.getClass().getName()
-                            + " | Message: " + e.getMessage()
-                            + " | Cause: " + e.getCause()
-                            + " | status code: " + e.getStatusCode()
-                    + "| customer url: " + customerServiceUrl
-            );
-        } catch (Exception e) {
-            return new CustomerResponseDTO(
-                    Feedback.CUSTOMER_SERVICE_UNAVAILABLE,
-                    "Class: " + e.getClass().getName()
-                            + " | Message: " + e.getMessage()
-                            + " | Cause: " + e.getCause()
-                            + "| customer url: " + customerServiceUrl
-            );
+            return new CustomerResponseDTO(getFeedbackFromStatus(e.getStatusCode()));
         }
     }
-//    public CustomerResponseDTO signupCustomer(CustomerDTO dto) {
-//        try {
-//            LoginResponseDTO response = restTemplate.postForObject(customerServiceUrl + "/signup", dto, LoginResponseDTO.class);
-//            return (response != null)
-//                    ? new CustomerResponseDTO(response.getCustomer(), Feedback.OK, response.getToken())
-//                    : new CustomerResponseDTO(Feedback.CUSTOMER_SERVICE_UNAVAILABLE);
-//        } catch (ResourceAccessException e) {
-//            System.err.println("SIGNUP - ResourceAccessException: " + e.getMessage());
-//            e.printStackTrace();
-//            return new CustomerResponseDTO(Feedback.CUSTOMER_SERVICE_UNAVAILABLE);
-//        } catch (HttpStatusCodeException e) {
-//            return new CustomerResponseDTO(getFeedbackFromStatus(e.getStatusCode()));
-//        }
-//    }
 
     public CustomerResponseDTO updateCustomer(Long customerId, CustomerDTO customerDTO) {
         try {
