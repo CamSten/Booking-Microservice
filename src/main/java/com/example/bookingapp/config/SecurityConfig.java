@@ -42,7 +42,8 @@ public class SecurityConfig {
                                 "/images/**",
                                 "/bookings/availability/**",
                                 "/bookings/customer/**",
-                                "/bookings/room/**")
+                                "/bookings/room/**",
+                                "/actuator/health")
                         .permitAll().anyRequest().authenticated())
                 .sessionManagement(s -> s.sessionCreationPolicy(
                         SessionCreationPolicy.IF_REQUIRED))

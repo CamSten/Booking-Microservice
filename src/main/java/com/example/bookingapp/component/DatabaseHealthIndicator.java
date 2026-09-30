@@ -15,6 +15,12 @@ public class DatabaseHealthIndicator implements HealthIndicator {
 
     @Override
     public Health health() {
-        return null;
+        try {
+            jdbcTemplate.queryForObject("SELECT 1", Integer.class);
+            return Health.up().build();
+        }
+        catch (Exception e){
+            return Health.down().withDetail("Database", "Database is down.").build();
+        }
     }
 }
