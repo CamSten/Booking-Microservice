@@ -29,7 +29,10 @@ jobs:
           password: ${{ secrets.DH_ACCESS_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t reviendra/booking-service:latest .
+        run: |
+          docker build -t reviendra/booking-service:latest -t reviendra/booking-service:${{ github.sha }} .
 
       - name: Push to Docker Hub
-        run: docker push reviendra/booking-service:latest
+        run: |
+          docker push reviendra/booking-service:latest
+          docker push reviendra/booking-service:${{ github.sha }}
