@@ -1,4 +1,4 @@
-name: deploy.yml
+name: Deploy to Production
 on:
   workflow_dispatch:
     inputs:
@@ -25,10 +25,10 @@ jobs:
 
       - name: Deploy to production
         env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_STAGING_TOKEN }}
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
         run: |
           railway redeploy \
             --project 4fd9a5e1-d80f-425a-9ce1-09d9ca994bb0 \
             --environment Staging \
-            --service c64941f4-3dea-4a22-820b-b83cdaa6f079 \
+            --service c42825b7-08da-4323-8206-47a4438d80fd \
             --yes

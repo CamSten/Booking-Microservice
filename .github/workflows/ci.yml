@@ -23,24 +23,29 @@ jobs:
           JWT_KEY: ${{ secrets.JWT_KEY }}
 
       - name: Log in to Docker Hub
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DH_ACCOUNT }}
           password: ${{ secrets.DH_ACCESS_TOKEN }}
 
       - name: Build Docker image
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         run: |
           docker build -t reviendra/booking-service:latest -t reviendra/booking-service:${{ github.sha }} .
 
       - name: Push to Docker Hub
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         run: |
           docker push reviendra/booking-service:latest
           docker push reviendra/booking-service:${{ github.sha }}
 
       - name: Install Railway CLI
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         run: npm install -g @railway/cli
 
       - name: Set Railway staging image
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         env:
          RAILWAY_TOKEN: ${{ secrets.RAILWAY_STAGING_TOKEN }}
         run: |
@@ -51,6 +56,7 @@ jobs:
             --image reviendra/booking-service:${{ github.sha }}
 
       - name: Deploy to staging
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_STAGING_TOKEN }}
         run: |
