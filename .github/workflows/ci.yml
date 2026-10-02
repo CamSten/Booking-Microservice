@@ -47,7 +47,7 @@ jobs:
       - name: Set Railway staging image
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         env:
-         RAILWAY_TOKEN: ${{ secrets.RAILWAY_STAGING_TOKEN }}
+          RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_API_TOKEN }}
         run: |
           railway service source connect \
             --project 4fd9a5e1-d80f-425a-9ce1-09d9ca994bb0 \
