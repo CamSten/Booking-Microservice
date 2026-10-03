@@ -22,7 +22,7 @@ jobs:
 
       - name: Deploy to production
         env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+          RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_API_TOKEN }}
         run: |
           railway api 'mutation DeployService($serviceId: String!, $environmentId: String!) { serviceInstanceDeployV2(serviceId: $serviceId environmentId: $environmentId) }' \
-           --variables '{"serviceId":"c64941f4-3dea-4a22-8206-47a4438d80fd","environmentId":"c42825b7-08da-4323-8206-47a4438d80fd"}'
+           --variables '{"serviceId":"c64941f4-3dea-4a22-820b-b83cdaa6f079","environmentId":"c42825b7-08da-4323-8206-47a4438d80fd"}'

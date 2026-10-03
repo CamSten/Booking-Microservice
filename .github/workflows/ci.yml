@@ -55,7 +55,7 @@ jobs:
       - name: Deploy to staging
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_STAGING_TOKEN }}
+          RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_STAGING_TOKEN }}
         run: |
           railway api 'mutation DeployService($serviceId: String!, $environmentId: String!) { serviceInstanceDeployV2(serviceId: $serviceId environmentId: $environmentId) }' \
           --variables '{"serviceId":"c64941f4-3dea-4a22-820b-b83cdaa6f079","environmentId":"01d9feb4-76da-4915-9c88-c4e1556f3ea4"}'
