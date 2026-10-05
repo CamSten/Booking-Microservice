@@ -1,4 +1,4 @@
-Det här är en skol uppgift för en devops kurs.
+Det här är en skoluppgift för en devops kurs.
 
 Det här är ett repo för tjänsten deployad här:
 Production: booking-microservice-production-cc97.up.railway.app
