@@ -17,12 +17,29 @@ jobs:
         env:
           RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_API_TOKEN }}
         run: |
-          railway api 'mutation UpdateService($serviceId: String!, $environmentId: String!, $input: ServiceInstanceUpdateInput!) { serviceInstanceUpdate(serviceId: $serviceId environmentId: $environmentId input: $input) }' \
-            --variables '{"serviceId":"c64941f4-3dea-4a22-820b-b83cdaa6f079","environmentId":"c42825b7-08da-4323-8206-47a4438d80fd","input":{"source":{"image":"reviendra/booking-service:${{ inputs.image_tag }}"}}}'
+          railway api \
+            'mutation UpdateService($serviceId: String!, $environmentId: String!, $input: ServiceInstanceUpdateInput!) {
+              serviceInstanceUpdate(serviceId: $serviceId environmentId: $environmentId input: $input) 
+          }' \
+          --variables '{
+            "serviceId":"${{ vars.RAILWAY_SERVICE_ID }}",
+            "environmentId":"${{ vars.RAILWAY_PRODUCTION_ENVIRONMENT_ID }}",
+            "input":{
+              "source":{
+                "image":"reviendra/booking-service:${{ inputs.image_tag }}"
+              }
+            }
+          }'
 
       - name: Deploy to production
         env:
           RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_API_TOKEN }}
         run: |
-          railway api 'mutation DeployService($serviceId: String!, $environmentId: String!) { serviceInstanceDeployV2(serviceId: $serviceId environmentId: $environmentId) }' \
-           --variables '{"serviceId":"c64941f4-3dea-4a22-820b-b83cdaa6f079","environmentId":"c42825b7-08da-4323-8206-47a4438d80fd"}'
+          railway api \
+            'mutation DeployService($serviceId: String!, $environmentId: String!) {
+              serviceInstanceDeployV2(serviceId: $serviceId environmentId: $environmentId) 
+          }' \
+          --variables '{
+            "serviceId":"${{ vars.RAILWAY_SERVICE_ID }}",
+            "environmentId":"${{ vars.RAILWAY_PRODUCTION_ENVIRONMENT_ID }}"
+          }'
