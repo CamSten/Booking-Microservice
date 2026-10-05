@@ -15,7 +15,8 @@ våran staging railway automatiskt updatera vid ny docker image medas production
 
 Under hela arbetsflödet har vi en öppen chat om vi skulle behöva ha kontakt med en annan medlem / boka möten för att prata om problem, ny issues m.m..
 
-Våran rollback görs via GitHub då vi kan pusha en gammal och fungerande commit och vår CI/CD pushar då den gamla koden som ny.
+Våran rollback för Staging görs via GitHub då vi kan pusha en gammal och fungerande commit och vår CI/CD pushar då den gamla koden som ny.
+Medans rollback för production görs vi Workflow_dispatch där vi ger en befintlig och valid image tag som input.
 
 Vi har skapat en merge-konflikt genom att två av oss arbetade på samma del av koden med små skillnader (src/main/resources/application.properties rad 15)(PR 15,17)
 när andra branchen skulle bli merged skapades konflikten som blev löst genom att acceptera inkommande ändringar.
