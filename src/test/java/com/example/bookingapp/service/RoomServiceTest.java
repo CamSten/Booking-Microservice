@@ -37,7 +37,7 @@ class RoomServiceTest {
 
         List<Room> rooms = roomService.getAllRooms();
 
-        assertEquals(1, rooms.size());
+        assertEquals(999, rooms.size());
         verify(roomRepository, times(1)).findAll();
     }
 
